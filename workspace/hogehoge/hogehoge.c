@@ -1,13 +1,12 @@
 #include <kernel.h>
 #include <t_syslog.h>
 #include "kernel_cfg.h"
-#include "report9-2.h"
+#include "hogehoge.h"
 
 #include <stdlib.h>              // exit() を使うため
 #include "spike/hub/display.h"   // Hub表示
 #include "spike/hub/speaker.h"   // スピーカ（環境により header 名が異なる場合あり）
-#include "spike/pup_device.h"     // モータを使うためのヘッダ
-#include "spike/pup/motor.h"
+#include "spike/pup/motor.h"     // モータを使うためのヘッダ
 
 #define TEMPO   18          /* 基本の音長(相対) */
 #define VOLUME  50          /* 音量 (0～100 程度) */
@@ -25,15 +24,8 @@ void test_spike_cychdr(intptr_t exinf)
 
 void move_robot(intptr_t exinf)
 {
-    //pup_motor_t *motorA = pup_motor_init(PBIO_PORT_ID_A, PUP_DIRECTION_COUNTERCLOCKWISE);
-    //pup_motor_t *motorE = pup_motor_init(PBIO_PORT_ID_E, PUP_DIRECTION_CLOCKWISE);
-    pup_motor_t *motorA = pup_motor_get_device(PBIO_PORT_ID_A);
-    pup_motor_t *motorE = pup_motor_get_device(PBIO_PORT_ID_E);
-
-    // モータのセットアップ
-    pup_motor_setup(motorA, PUP_DIRECTION_COUNTERCLOCKWISE, true);
-    pup_motor_setup(motorE, PUP_DIRECTION_CLOCKWISE, true);
-
+    pup_motor_t *motorA = pup_motor_init(PBIO_PORT_ID_A, PUP_DIRECTION_COUNTERCLOCKWISE);
+    pup_motor_t *motorE = pup_motor_init(PBIO_PORT_ID_E, PUP_DIRECTION_CLOCKWISE);
 
     // 1秒待ってからスタート
     // モータA・Bを同時に500度/秒で回転
