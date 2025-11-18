@@ -25,14 +25,14 @@ void test_spike_cychdr(intptr_t exinf)
 
 void move_robot(intptr_t exinf)
 {
-    //pup_motor_t *motorA = pup_motor_init(PBIO_PORT_ID_A, PUP_DIRECTION_COUNTERCLOCKWISE);
-    //pup_motor_t *motorE = pup_motor_init(PBIO_PORT_ID_E, PUP_DIRECTION_CLOCKWISE);
-    pup_motor_t *motorA = pup_motor_get_device(PBIO_PORT_ID_A);
-    pup_motor_t *motorE = pup_motor_get_device(PBIO_PORT_ID_E);
+    pup_motor_t *motorA = pup_motor_init(PBIO_PORT_ID_A, PUP_DIRECTION_COUNTERCLOCKWISE);
+    pup_motor_t *motorE = pup_motor_init(PBIO_PORT_ID_E, PUP_DIRECTION_CLOCKWISE);
+    //pup_motor_t *motorA = pup_motor_get_device(PBIO_PORT_ID_A);
+    //pup_motor_t *motorE = pup_motor_get_device(PBIO_PORT_ID_E);
 
     // モータのセットアップ
-    pup_motor_setup(motorA, PUP_DIRECTION_COUNTERCLOCKWISE, true);
-    pup_motor_setup(motorE, PUP_DIRECTION_CLOCKWISE, true);
+    //pup_motor_setup(motorA, PUP_DIRECTION_COUNTERCLOCKWISE, true);
+    //pup_motor_setup(motorE, PUP_DIRECTION_CLOCKWISE, true);
 
 
     // 1秒待ってからスタート

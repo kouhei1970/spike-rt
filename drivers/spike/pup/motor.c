@@ -63,6 +63,29 @@ pbio_error_t pup_motor_setup(pup_motor_t *motor, pup_direction_t positive_direct
   return err;
 }
 
+/* 独自関数 Afrel -start */
+pup_motor_t *pup_motor_init(pbio_port_id_t port, pup_direction_t positive_direction){
+  pbio_error_t err;
+  pup_motor_t *motor;
+  motor = pup_motor_get_device(port);
+  if(motor == NULL)
+  {
+  }
+
+  for(int i = 0; i < 10; i++)
+  {
+    bool reset_count = true;
+    err = pup_motor_setup(motor, positive_direction, reset_count);
+    if(err != PBIO_ERROR_AGAIN)
+      break;
+    // Wait 1s and try one more
+    dly_tsk(1000000);
+  }
+  return motor;
+}
+/* 独自関数 Afrel -end */
+
+
 pbio_error_t pup_motor_reset_count(pup_motor_t *motor) {
   pbio_error_t err = pbio_servo_reset_angle(motor, 0, false);
   if (err != PBIO_SUCCESS) {

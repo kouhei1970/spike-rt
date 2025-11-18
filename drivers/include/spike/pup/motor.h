@@ -245,6 +245,9 @@ int32_t pup_motor_set_duty_limit(pup_motor_t *motor, int duty_limit);
  */
 void pup_motor_restore_duty_limit(pup_motor_t *motor, int old_value);
 
+pup_motor_t *pup_motor_init(pbio_port_id_t port, pup_direction_t positive_direction); // 独自関数用 Afrel
+
+
 #endif // _PUP_MOTOR_H_
 
 /**
