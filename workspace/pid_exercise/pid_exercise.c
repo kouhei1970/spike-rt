@@ -37,7 +37,7 @@ pup_device_t *color_sensor_right; // 右カラーセンサー
 #define RIGHT_MOTOR       PBIO_PORT_ID_D
 
 // --- PIDゲインと定数 ---
-#define BASE_POWER 100       // 基本走行パワー (0〜100)
+#define BASE_POWER 800       // 基本走行パワー (0〜100)
 #define CONTROL_PERIOD_MS 10 // 制御周期 [ms]
 #define CONTROL_PERIOD_US (CONTROL_PERIOD_MS * 1000) // 制御周期 [us]
 
